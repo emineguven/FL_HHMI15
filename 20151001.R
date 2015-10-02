@@ -19,6 +19,7 @@ setwd("~/github/student.project.archives/spelman/2015-2016/FL")
 # load series and platform data from GEO, 
 # This takes a few minutes
 gset <- getGEO("GSE32719", GSEMatrix =TRUE)[[1]]
+# see http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE32719
 
 # load NCBI platform annotation
 gpl <- annotation(gset)
