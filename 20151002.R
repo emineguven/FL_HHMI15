@@ -59,9 +59,9 @@ library(GEOquery)
 
 # load series and platform data from GEO
 
-gset <- getGEO("GSE32719", GSEMatrix =TRUE)
-if (length(gset) > 1) idx <- grep("GPL570", attr(gset, "names")) else idx <- 1
-gset <- gset[[idx]]
+#gset <- getGEO("GSE32719", GSEMatrix =TRUE)
+#if (length(gset) > 1) idx <- grep("GPL570", attr(gset, "names")) else idx <- 1
+#gset <- gset[[idx]]
 
 # group names for all samples in a series
 sml <- c("G0","G0","G0","G0","G0","G0","G0","G0","G0","G0","G0","G0","G0","G0","G1","G1","G1","G1","G1","G2","G2","G2","G2","G2","G2","G2","G2")
