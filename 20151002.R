@@ -9,6 +9,10 @@ library(limma)
 
 # load series and platform data from GEO
 
+# http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE32719
+# GPL570	[HG-U133_Plus_2] Affymetrix Human Genome U133 Plus 2.0 Array
+# https://bioconductor.org/packages/release/data/annotation/html/hgu133plus2.db.html
+
 gset <- getGEO("GSE32719", GSEMatrix =TRUE)
 if (length(gset) > 1) idx <- grep("GPL570", attr(gset, "names")) else idx <- 1
 gset <- gset[[idx]]
