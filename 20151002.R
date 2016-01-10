@@ -7,12 +7,25 @@ library(Biobase)
 library(GEOquery)
 library(limma)
 
-# load series and platform data from GEO
-
+# load platform data from bioconductor
 # http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE32719
 # GPL570	[HG-U133_Plus_2] Affymetrix Human Genome U133 Plus 2.0 Array
 # https://bioconductor.org/packages/release/data/annotation/html/hgu133plus2.db.html
+# source("https://bioconductor.org/biocLite.R")
+# biocLite("hgu133plus2.db")
+library("hgu133plus2.db")
+help(package="hgu133plus2.db")
+ls("package:hgu133plus2.db")
+# x <- hgu133plus2GENENAME
+x <- hgu133plus2SYMBOL
+mapped_probes <- mappedkeys(x)
+xx <- as.list(x[mapped_probes])
+xx[1:5]
 
+
+
+
+# load series and platform data from GEO
 gset <- getGEO("GSE32719", GSEMatrix =TRUE)
 if (length(gset) > 1) idx <- grep("GPL570", attr(gset, "names")) else idx <- 1
 gset <- gset[[idx]]
