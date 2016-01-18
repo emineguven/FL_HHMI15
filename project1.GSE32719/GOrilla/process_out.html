@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<title>
+Results
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+function toggle(item) {
+obj=document.getElementById(item);
+visible=(obj.style.display!="none")
+key=document.getElementById("ctrl_" + item);
+if (visible) {
+    obj.style.display="none";
+key.innerHTML="[+] Show genes";
+}
+else {
+obj.style.display="block";
+key.innerHTML="[-] Hide genes";
+}
+}
+</script>
+<style type="text/css">/**
+ * Style sheet used by new LibX tooltip code
+ */
+
+/* We insert a <div> with libx-tooltip style under the body.
+ * This will inherit body's style - we can't afford to inherit undesirable 
+ * styles and we must redefine what we need.  OTOH, some things, e.g.
+ * font-size, might be ok to be inherited to stay within the page's tone.
+ */
+.libx-tooltip {
+    display: none;
+    overflow: visible;
+    padding: 5px;
+    z-index: 100;
+    background-color: #eee;
+    color: #000;
+    font-weight: normal;
+    font-style: normal;
+    text-align: left;
+    border: 2px solid #666;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+.libx-tooltip p {
+    /* override default 1em margin to keep paragraphs inside a tooltip closer together. */
+    margin: .2em;
+}
+</style><style type="text/css">/**
+ * Style sheet used by LibX autolinking code
+ */
+.libx-autolink {
+}
+
+</style></head>
+<body>
+<p></p><center><b>
+
+</b></center><p></p>
+<table id="tab:pval_legend" border="1" width="80%" align="center">
+<caption><em>P-value color scale</em></caption>
+<tbody><tr>
+	<td width="140" align="center"> &gt; 10<sup>-3</sup></td>
+	<td bgcolor="#FFFFCC" width="140" align="center"> 10<sup>-3</sup> to 10<sup>-5</sup></td>
+	<td bgcolor="#FFCC66" width="140" align="center"> 10<sup>-5</sup> to 10<sup>-7</sup></td>
+	<td bgcolor="#FF9900" width="140" align="center"> 10<sup>-7</sup> to 10<sup>-9</sup></td>
+	<td bgcolor="#FF3300" width="140" align="center"> &lt; 10<sup>-9</sup></td>
+</tr>
+</tbody></table>
+<map name="goPathImage">
+<area shape="RECT" coords="32,815,163,878" href="#1902531" alt="">
+<area shape="RECT" coords="70,1253,195,1301" href="#0043408" alt="">
+<area shape="RECT" coords="166,953,296,1033" href="#1902532" alt="">
+<area shape="RECT" coords="471,375,554,438" href="#0050794" alt="">
+<area shape="RECT" coords="300,529,447,577" href="#0010646" alt="">
+<area shape="RECT" coords="471,513,554,593" href="#0048523" alt="">
+<area shape="RECT" coords="578,513,660,593" href="#0031323" alt="">
+<area shape="RECT" coords="74,513,167,593" href="#0048585" alt="">
+<area shape="RECT" coords="187,807,280,887" href="#0009968" alt="">
+<area shape="RECT" coords="683,117,763,165" href="#0065007" alt="">
+<area shape="RECT" coords="410,238,503,301" href="#0050789" alt="">
+<area shape="RECT" coords="320,945,419,1042" href="#0045936" alt="">
+<area shape="RECT" coords="307,1109,432,1171" href="#0042326" alt="">
+<area shape="RECT" coords="456,1109,568,1171" href="#0001932" alt="">
+<area shape="RECT" coords="384,1237,496,1317" href="#0001933" alt="">
+<area shape="RECT" coords="1056,238,1147,301" href="#0016043" alt="">
+<area shape="RECT" coords="1056,383,1147,431" href="#0006996" alt="">
+<area shape="RECT" coords="656,807,782,887" href="#0032268" alt="">
+<area shape="RECT" coords="592,953,686,1033" href="#0031399" alt="">
+<area shape="RECT" coords="710,945,835,1042" href="#0032269" alt="">
+<area shape="RECT" coords="354,367,447,447" href="#0048519" alt="">
+<area shape="RECT" coords="684,375,780,438" href="#0019222" alt="">
+<area shape="RECT" coords="191,383,276,431" href="#0023051" alt="">
+<area shape="RECT" coords="74,375,167,438" href="#0048583" alt="">
+<area shape="RECT" coords="324,798,431,895" href="#0010563" alt="">
+<area shape="RECT" coords="443,969,568,1017" href="#0042325" alt="">
+<area shape="RECT" coords="1387,245,1483,293" href="#0009058" alt="">
+<area shape="RECT" coords="1400,375,1531,438" href="#1901576" alt="">
+<area shape="RECT" coords="1280,375,1376,438" href="#0044249" alt="">
+<area shape="RECT" coords="1171,358,1256,455" href="#0034641" alt="">
+<area shape="RECT" coords="1235,505,1331,602" href="#0044271" alt="">
+<area shape="RECT" coords="200,1366,326,1429" href="#0043409" alt="">
+<area shape="RECT" coords="684,513,780,593" href="#0009892" alt="">
+<area shape="RECT" coords="191,522,276,585" href="#0023057" alt="">
+<area shape="RECT" coords="956,513,1039,593" href="#0080090" alt="">
+<area shape="RECT" coords="804,513,932,593" href="#0060255" alt="">
+<area shape="RECT" coords="735,651,863,749" href="#0010605" alt="">
+<area shape="RECT" coords="578,651,660,749" href="#0031324" alt="">
+<area shape="RECT" coords="1171,238,1254,301" href="#0044237" alt="">
+<area shape="RECT" coords="67,1366,176,1429" href="#0070372" alt="">
+<area shape="RECT" coords="138,1477,247,1557" href="#0070373" alt="">
+<area shape="RECT" coords="276,669,423,731" href="#0010648" alt="">
+<area shape="RECT" coords="455,807,554,887" href="#0019220" alt="">
+<area shape="RECT" coords="1555,375,1670,438" href="#0043170" alt="">
+<area shape="RECT" coords="1482,522,1596,585" href="#0009059" alt="">
+<area shape="RECT" coords="592,1091,686,1189" href="#0031400" alt="">
+<area shape="RECT" coords="1278,229,1363,309" href="#0006807" alt="">
+<area shape="RECT" coords="1063,529,1188,577" href="#0007030" alt="">
+<area shape="RECT" coords="887,660,970,740" href="#0051246" alt="">
+<area shape="RECT" coords="51,669,144,731" href="#0009966" alt="">
+<area shape="RECT" coords="1052,101,1151,181" href="#0071840" alt="">
+<area shape="RECT" coords="1156,5,1044,29" href="#0008150" alt="">
+<area shape="RECT" coords="1279,117,1362,165" href="#0008152" alt="">
+<area shape="RECT" coords="1175,117,1247,165" href="#0009987" alt="">
+<area shape="RECT" coords="1507,238,1638,301" href="#0071704" alt="">
+<area shape="RECT" coords="806,798,888,895" href="#0051248" alt="">
+<area shape="RECT" coords="447,660,554,740" href="#0051174" alt="">
+</map>
+<p align="center"><img src="process_out_files/GO.png" usemap="#goPathImage" alt="" border="0"></p>
+<p>&nbsp;</p>
+<table id="table1" border="1" width="100%">
+	<tbody><tr>
+		<td align="center"><b>GO term</b></td>
+		<td align="center"><b>Description</b></td>
+		<td width="120" align="center"><b><a href="#p_value_info">P-value</a></b></td> 
+		<td width="120" align="center"><b><a href="#fdr_info">FDR q-value</a></b></td> 
+		<td width="230" align="center"><b><a href="#enrich_info"> Enrichment (N, B, n, b) </a></b> </td>
+		<td align="center"><b><a href="#genes_info"> Genes </a></b></td>
+	</tr>
+<tr>
+<td><a href="http://www.godatabase.org/cgi-bin/amigo/go.cgi?query=GO:0070373&amp;view=details" target="_blank">GO:0070373</a><a name="0070373"></a></td>
+<td>negative regulation of ERK1 and ERK2 cascade</td>
+<td align="center">6.3E-4</td>
+<td align="center">1E0</td>
+<td align="center">7.20 (16851,50,234,5)</td>
+<td>
+<a id="ctrl_elements_GO:0070373" href="javascript:toggle('elements_GO:0070373')">[+] Show genes</a><br>
+<div id="elements_GO:0070373" style="display:none"> <font size="1">
+TNIP1  -  tnfaip3 interacting protein 1<br>
+DUSP6  -  dual specificity phosphatase 6<br>
+DUSP1  -  dual specificity phosphatase 1<br>
+RANBP9  -  ran binding protein 9<br>
+EZR  -  ezrin<br>
+</font></div>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.godatabase.org/cgi-bin/amigo/go.cgi?query=GO:0009059&amp;view=details" target="_blank">GO:0009059</a><a name="0009059"></a></td>
+<td>macromolecule biosynthetic process</td>
+<td align="center">6.45E-4</td>
+<td align="center">1E0</td>
+<td align="center">1.47 (16851,3140,234,64)</td>
+<td>
+<a id="ctrl_elements_GO:0009059" href="javascript:toggle('elements_GO:0009059')">[+] Show genes</a><br>
+<div id="elements_GO:0009059" style="display:none"> <font size="1">
+CHD9  -  chromodomain helicase dna binding protein 9<br>
+PRKAA2  -  protein kinase, amp-activated, alpha 2 catalytic subunit<br>
+CASZ1  -  castor zinc finger 1<br>
+TSHZ2  -  teashirt zinc finger homeobox 2<br>
+NSD1  -  nuclear receptor binding set domain protein 1<br>
+HEXIM1  -  hexamethylene bis-acetamide inducible 1<br>
+ZBED6  -  zinc finger, bed-type containing 6<br>
+RFX3  -  regulatory factor x, 3 (influences hla class ii expression)<br>
+PBX2  -  pre-b-cell leukemia homeobox 2<br>
+NCOA7  -  nuclear receptor coactivator 7<br>
+RNF14  -  ring finger protein 14<br>
+GTF2A2  -  general transcription factor iia, 2, 12kda<br>
+SP100  -  sp100 nuclear antigen<br>
+NFYA  -  nuclear transcription factor y, alpha<br>
+POLN  -  polymerase (dna directed) nu<br>
+TNIP1  -  tnfaip3 interacting protein 1<br>
+HIVEP2  -  human immunodeficiency virus type i enhancer binding protein 2<br>
+GPC3  -  glypican 3<br>
+MECOM  -  mds1 and evi1 complex locus<br>
+RPLP1  -  ribosomal protein, large, p1<br>
+ZNF418  -  zinc finger protein 418<br>
+SLC25A30  -  solute carrier family 25, member 30<br>
+AHR  -  aryl hydrocarbon receptor<br>
+WWC1  -  ww and c2 domain containing 1<br>
+BMI1  -  bmi1 polycomb ring finger oncogene<br>
+CPEB3  -  cytoplasmic polyadenylation element binding protein 3<br>
+AURKAIP1  -  aurora kinase a interacting protein 1<br>
+SERPINE1  -  serpin peptidase inhibitor, clade e (nexin, plasminogen activator inhibitor type 1), member 1<br>
+GAR1  -  gar1 ribonucleoprotein<br>
+L3MBTL4  -  l(3)mbt-like 4 (drosophila)<br>
+ZNF652  -  zinc finger protein 652<br>
+ZNF273  -  zinc finger protein 273<br>
+ZNF107  -  zinc finger protein 107<br>
+DDIT4  -  dna-damage-inducible transcript 4<br>
+SPCS2  -  signal peptidase complex subunit 2 homolog (s. cerevisiae)<br>
+MRPL30  -  mitochondrial ribosomal protein l30<br>
+GPX2  -  glutathione peroxidase 2 (gastrointestinal)<br>
+STAT1  -  signal transducer and activator of transcription 1, 91kda<br>
+MRPL50  -  mitochondrial ribosomal protein l50<br>
+VGLL1  -  vestigial like 1 (drosophila)<br>
+KANK1  -  kn motif and ankyrin repeat domains 1<br>
+PDPK1  -  3-phosphoinositide dependent protein kinase-1<br>
+MORF4L2  -  mortality factor 4 like 2<br>
+ELP2  -  elongator acetyltransferase complex subunit 2<br>
+SMYD1  -  set and mynd domain containing 1<br>
+CHST3  -  carbohydrate (chondroitin 6) sulfotransferase 3<br>
+ZXDA  -  zinc finger, x-linked, duplicated a<br>
+ZNF585A  -  zinc finger protein 585a<br>
+SRSF3  -  serine/arginine-rich splicing factor 3<br>
+KAT8  -  k(lysine) acetyltransferase 8<br>
+UCP2  -  uncoupling protein 2 (mitochondrial, proton carrier)<br>
+E2F1  -  e2f transcription factor 1<br>
+MBTD1  -  mbt domain containing 1<br>
+FOS  -  fbj murine osteosarcoma viral oncogene homolog<br>
+ZNF599  -  zinc finger protein 599<br>
+TBX3  -  t-box 3<br>
+SLC25A44  -  solute carrier family 25, member 44<br>
+SDC3  -  syndecan 3<br>
+TCEB3  -  transcription elongation factor b (siii), polypeptide 3 (110kda, elongin a)<br>
+SLC25A4  -  solute carrier family 25 (mitochondrial carrier; adenine nucleotide translocator), member 4<br>
+SAFB2  -  scaffold attachment factor b2<br>
+TCEB1  -  transcription elongation factor b (siii), polypeptide 1 (15kda, elongin c)<br>
+TEAD2  -  tea domain family member 2<br>
+ZNF827  -  zinc finger protein 827<br>
+</font></div>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.godatabase.org/cgi-bin/amigo/go.cgi?query=GO:0044271&amp;view=details" target="_blank">GO:0044271</a><a name="0044271"></a></td>
+<td>cellular nitrogen compound biosynthetic process</td>
+<td align="center">6.82E-4</td>
+<td align="center">1E0</td>
+<td align="center">1.46 (16851,3209,234,65)</td>
+<td>
+<a id="ctrl_elements_GO:0044271" href="javascript:toggle('elements_GO:0044271')">[+] Show genes</a><br>
+<div id="elements_GO:0044271" style="display:none"> <font size="1">
+CHD9  -  chromodomain helicase dna binding protein 9<br>
+PRKAA2  -  protein kinase, amp-activated, alpha 2 catalytic subunit<br>
+CASZ1  -  castor zinc finger 1<br>
+TSHZ2  -  teashirt zinc finger homeobox 2<br>
+NSD1  -  nuclear receptor binding set domain protein 1<br>
+HEXIM1  -  hexamethylene bis-acetamide inducible 1<br>
+ZBED6  -  zinc finger, bed-type containing 6<br>
+RFX3  -  regulatory factor x, 3 (influences hla class ii expression)<br>
+PBX2  -  pre-b-cell leukemia homeobox 2<br>
+NCOA7  -  nuclear receptor coactivator 7<br>
+RNF14  -  ring finger protein 14<br>
+NMNAT3  -  nicotinamide nucleotide adenylyltransferase 3<br>
+GTF2A2  -  general transcription factor iia, 2, 12kda<br>
+SP100  -  sp100 nuclear antigen<br>
+NFYA  -  nuclear transcription factor y, alpha<br>
+POLN  -  polymerase (dna directed) nu<br>
+TNIP1  -  tnfaip3 interacting protein 1<br>
+HIVEP2  -  human immunodeficiency virus type i enhancer binding protein 2<br>
+HPRT1  -  hypoxanthine phosphoribosyltransferase 1<br>
+MECOM  -  mds1 and evi1 complex locus<br>
+RPLP1  -  ribosomal protein, large, p1<br>
+ZNF418  -  zinc finger protein 418<br>
+SLC25A30  -  solute carrier family 25, member 30<br>
+AHR  -  aryl hydrocarbon receptor<br>
+WWC1  -  ww and c2 domain containing 1<br>
+BMI1  -  bmi1 polycomb ring finger oncogene<br>
+ATP5F1  -  atp synthase, h+ transporting, mitochondrial fo complex, subunit b1<br>
+CPEB3  -  cytoplasmic polyadenylation element binding protein 3<br>
+AURKAIP1  -  aurora kinase a interacting protein 1<br>
+SERPINE1  -  serpin peptidase inhibitor, clade e (nexin, plasminogen activator inhibitor type 1), member 1<br>
+L3MBTL4  -  l(3)mbt-like 4 (drosophila)<br>
+ZNF652  -  zinc finger protein 652<br>
+ZNF273  -  zinc finger protein 273<br>
+ZNF107  -  zinc finger protein 107<br>
+DDIT4  -  dna-damage-inducible transcript 4<br>
+SPCS2  -  signal peptidase complex subunit 2 homolog (s. cerevisiae)<br>
+MRPL30  -  mitochondrial ribosomal protein l30<br>
+GPX2  -  glutathione peroxidase 2 (gastrointestinal)<br>
+STAT1  -  signal transducer and activator of transcription 1, 91kda<br>
+SGMS2  -  sphingomyelin synthase 2<br>
+MRPL50  -  mitochondrial ribosomal protein l50<br>
+VGLL1  -  vestigial like 1 (drosophila)<br>
+KANK1  -  kn motif and ankyrin repeat domains 1<br>
+PDPK1  -  3-phosphoinositide dependent protein kinase-1<br>
+MORF4L2  -  mortality factor 4 like 2<br>
+ELP2  -  elongator acetyltransferase complex subunit 2<br>
+OAS1  -  2'-5'-oligoadenylate synthetase 1, 40/46kda<br>
+SMYD1  -  set and mynd domain containing 1<br>
+ZXDA  -  zinc finger, x-linked, duplicated a<br>
+ZNF585A  -  zinc finger protein 585a<br>
+SRSF3  -  serine/arginine-rich splicing factor 3<br>
+KAT8  -  k(lysine) acetyltransferase 8<br>
+UCP2  -  uncoupling protein 2 (mitochondrial, proton carrier)<br>
+E2F1  -  e2f transcription factor 1<br>
+MBTD1  -  mbt domain containing 1<br>
+FOS  -  fbj murine osteosarcoma viral oncogene homolog<br>
+TBX3  -  t-box 3<br>
+ZNF599  -  zinc finger protein 599<br>
+SLC25A44  -  solute carrier family 25, member 44<br>
+TCEB3  -  transcription elongation factor b (siii), polypeptide 3 (110kda, elongin a)<br>
+SLC25A4  -  solute carrier family 25 (mitochondrial carrier; adenine nucleotide translocator), member 4<br>
+SAFB2  -  scaffold attachment factor b2<br>
+TCEB1  -  transcription elongation factor b (siii), polypeptide 1 (15kda, elongin c)<br>
+TEAD2  -  tea domain family member 2<br>
+ZNF827  -  zinc finger protein 827<br>
+</font></div>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.godatabase.org/cgi-bin/amigo/go.cgi?query=GO:0007030&amp;view=details" target="_blank">GO:0007030</a><a name="0007030"></a></td>
+<td>Golgi organization</td>
+<td align="center">9.16E-4</td>
+<td align="center">1E0</td>
+<td align="center">5.33 (16851,81,234,6)</td>
+<td>
+<a id="ctrl_elements_GO:0007030" href="javascript:toggle('elements_GO:0007030')">[+] Show genes</a><br>
+<div id="elements_GO:0007030" style="display:none"> <font size="1">
+CSNK1A1  -  casein kinase 1, alpha 1<br>
+STX6  -  syntaxin 6<br>
+BLZF1  -  basic leucine zipper nuclear factor 1<br>
+GCC2  -  grip and coiled-coil domain containing 2<br>
+COG2  -  component of oligomeric golgi complex 2<br>
+NSFL1C  -  nsfl1 (p97) cofactor (p47)<br>
+</font></div>
+</td>
+</tr>
+</tbody></table>
+<p>Species used: Homo sapiens</p><p>The system has recognized 20299 genes out of 21874 gene terms entered by the user.<br> 20297 genes were recognized by gene symbol and 2 genes by other gene IDs .<br>274 duplicate genes were removed (keeping the highest ranking instance of each gene) leaving  a total of 20025 genes.<br>Only 16851 of these genes are associated with a GO term.<br></p>
+<p> The GOrilla database is periodically updated using the <a href="http://www.geneontology.org/">GO database</a> and other sources.<br>
+The GOrilla database was last updated on Jan 16, 2016</p>
+<p>This results page will be available on this site for one month from now (until 
+Feb 18, 2016
+). You can bookmark this page and come back to it later.
+</p>
+<a name="p_value_info"></a><br><b>'P-value'</b> is the enrichment 
+p-value computed according to the mHG or HG model. This p-value is not 
+corrected for multiple testing of 14147 GO terms.<br>
+<a name="fdr_info"></a><br><b>'FDR q-value'</b> is the correction of the above p-value for multiple testing using the Benjamini and Hochberg (1995) method. <br>Namely, for the i<sup>th</sup> term (ranked according to p-value) the FDR q-value is (p-value * number of GO terms) / i. <br>
+<a name="enrich_info"></a><br><b>Enrichment (N, B, n, b)</b> is defined as follows:<br>N - is the total number of genes<br>B - is the total number of genes associated with a specific GO term<br>n - is the number of genes in the top of the user's input list or in the target set when appropriate<br>b - is the number of genes in the intersection<br>Enrichment = (b/n) / (B/N)<br>
+<a name="genes_info"></a><br><b>Genes:</b> For each GO term you can see the list of associated genes that appear in the optimal top of the list.<br>Each gene name is specified by gene symbol followed by a short description of the gene <br>
+<p>
+<a href="http://cbl-gorilla.cs.technion.ac.il/"> Back to the GOrilla main page </a>
+</p>
+
+
+</body></html>
