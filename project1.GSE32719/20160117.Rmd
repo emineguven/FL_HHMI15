@@ -14,6 +14,8 @@ setwd("~/github/FL_HHMI15/project1.GSE32719")
 library(Biobase)
 library(GEOquery)
 library(limma)
+library(foreach)
+library(doMC)
 ```
 
 load platform data from bioconductor
@@ -31,6 +33,27 @@ Load series and platform data from GEO
 # fvarLabels(gset) <- make.names(fvarLabels(gset))
 ```
 
+
+Check exression levels. I need to normalize them. !!!!
+```{r}
+ex= exprs(gset)
+apply( ex, 2, median)
+means = apply( ex, 2, mean)
+means
+boxplot( ex )
+```
+
+Normalize them by total intensity
+```{r}
+scale = max(means)
+for(i in 1:length(ex[1,])){
+  ex[,i] = ex[,i] * scale/ means[i]
+}
+apply( ex, 2, mean) / scale
+apply( ex, 2, median) /scale
+boxplot( ex )
+```
+
 Study the structure of gset
 ```{r, comment=NA}
 str(gset)
@@ -44,12 +67,17 @@ unique( experimental_design$source_name_ch1 )
 ```
 
 
+
 ```{r}
-# set up the data and proceed with analysis
-sample.names = unique(experimental_design$source_name_ch1)
 sample.letters = as.factor( LETTERS[1:length(sample.names)]) 
 names(sample.letters) = sample.names
-sample.letters[experimental_design$source_name_ch1 ]
+```
+
+
+Using 'limma' for differential expression
+```{r}
+# set up the data and proceed with analysis
+sample.letters[ experimental_design$source_name_ch1 ]
 fl <- as.factor( sample.letters[experimental_design$source_name_ch1 ] )
 gset$description <- fl
 design <- model.matrix(~ description + 0, gset)
@@ -85,6 +113,37 @@ tT[1:10, ]
 ```{r, message=FALSE}
 write.table(tT, file="__tmp.tsv", row.names=F, sep="\t")
 ```
+
+Regression for age-dependent changes 
+```{r}
+sample.names = unique(experimental_design$source_name_ch1)
+mylevels = c(1,2,3)
+names(mylevels) = sample.names
+gset.levels = mylevels[ experimental_design$source_name_ch1 ]
+my.pvalues = numeric(length=length(ex[,1]))
+# x2 = foreach(i=1:(3*2), .combine='cbind') %dopar% sqrt(i)
+registerDoMC(cores=4)
+#my.pvalues = foreach( i = 1:length(ex[,1]), .combine='rbind') %dopar% {
+my.pvalues = foreach( i = 1:100, .combine='rbind') %dopar% {
+  m = lm( ex[i,] ~ gset.levels )
+  sm = summary(m)
+  pf(sm$fstatistic[1], sm$fstatistic[2], sm$fstatistic[3], lower.tail = FALSE)
+}
+names(my.pvalues) = row.names(gset@assayData$exprs)
+```
+
+Find signicant p-values
+```{r}
+hist(my.pvalues)
+summary(my.pvalues)
+my.pvalues.BH = p.adjust(my.pvalues, "BH")
+hist(my.pvalues.BH)
+summary(my.pvalues.BH)
+sig= my.pvalues.BH[my.pvalues.BH < 0.05]
+names(sig)
+ncbifd[ ncbifd$ID == names(sig),  ]
+```
+
 
 
 Load bioconductor annotation
