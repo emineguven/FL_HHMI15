@@ -1,0 +1,63 @@
+---
+title: "20160117 GSE32719 FL_HHMI15" 
+author: "h qin"
+date: "January 17, 2016"
+output: html_document
+---
+
+GSE32719
+http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE32719
+
+```{r, message=FALSE}
+rm(list=ls())
+setwd("~/github/FL_HHMI15/project1.GSE32719")
+library(Biobase)
+library(GEOquery)
+library(limma)
+```
+
+load platform data from bioconductor
+http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE32719
+GPL570	[HG-U133_Plus_2] Affymetrix Human Genome U133 Plus 2.0 Array
+https://bioconductor.org/packages/release/data/annotation/html/hgu133plus2.db.html
+
+
+Load series and platform data from GEO
+# gset <- getGEO("GSE32719", GSEMatrix =TRUE)
+
+```{r}
+ gset <- getGEO(filename="GSE32719_series_matrix.txt.gz")
+# make proper column names to match toptable 
+# fvarLabels(gset) <- make.names(fvarLabels(gset))
+```
+
+Study the structure of gset
+```{r, comment=NA}
+str(gset)
+#gset@phenoData@data
+experimental_design = gset@phenoData@data
+experimental_design
+# gset@phenoData@varMetadata
+# experimental_design[, "source_name_ch1"][1:10]
+experimental_design[1:10,  c("title", "source_name_ch1")]
+unique( experimental_design$source_name_ch1 )
+```
+
+
+
+
+
+
+
+```{r, message=FALSE }
+# source("https://bioconductor.org/biocLite.R")
+# biocLite("hgu133plus2.db")
+library("hgu133plus2.db")
+help(package="hgu133plus2.db")
+ls("package:hgu133plus2.db")
+# x <- hgu133plus2GENENAME
+x <- hgu133plus2SYMBOL
+mapped_probes <- mappedkeys(x)
+xx <- as.list(x[mapped_probes])
+xx[1:5]
+```
