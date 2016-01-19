@@ -66,32 +66,6 @@ experimental_design[1:3,  c("title", "source_name_ch1")]
 unique( experimental_design$source_name_ch1 )
 ```
 
-
-
-```{r}
-sample.letters = as.factor( LETTERS[1:length(sample.names)]) 
-names(sample.letters) = sample.names
-```
-
-
-Using 'limma' for differential expression
-```{r}
-# set up the data and proceed with analysis
-sample.letters[ experimental_design$source_name_ch1 ]
-fl <- as.factor( sample.letters[experimental_design$source_name_ch1 ] )
-gset$description <- fl
-design <- model.matrix(~ description + 0, gset)
-colnames(design) <- levels(fl)
-fit <- lmFit(gset, design)
-#A-B-C does not look right? 
-cont.matrix <- makeContrasts(A-B-C, levels=design)
-cont.matrix
-fit2 <- contrasts.fit(fit, cont.matrix)
-fit2 <- eBayes(fit2, 0.01)
-tT <- topTable(fit2, adjust="fdr", sort.by="B", number=length(fit2))
-```
-
-
 Load NCBI platform annotation
 ```{r, message=FALSE}
 gpl <- annotation(gset)
@@ -99,20 +73,6 @@ platf <- getGEO(gpl, AnnotGPL=TRUE)
 ncbifd <- data.frame(attr(dataTable(platf), "table"))
 ```
 
-
-```{r}
-# replace original platform annotation
-#tT <- tT[setdiff(colnames(tT), setdiff(fvarLabels(gset), "ID"))]
-#tT <- merge(tT, ncbifd, by="ID")
-#tT <- tT[order(tT$P.Value), ]  # restore correct order
-
-#tT <- subset(tT, select=c("ID","adj.P.Val","P.Value","t","B","logFC","Gene.symbol","Gene.title"))
-#tT[1:10, ]
-```
-
-```{r, message=FALSE}
-#write.table(tT, file="__tmp.tsv", row.names=F, sep="\t")
-```
 
 Regression for age-dependent changes 
 ```{r}
