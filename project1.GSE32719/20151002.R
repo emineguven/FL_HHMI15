@@ -3,9 +3,15 @@
 
 ################################################################
 #   Differential expression analysis with limma
+
+rm(list=ls())
+setwd("~/github/FL_HHMI15/project1.GSE32719")
 library(Biobase)
 library(GEOquery)
 library(limma)
+library(foreach)
+library(doMC)
+
 
 # load platform data from bioconductor
 # http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE32719
